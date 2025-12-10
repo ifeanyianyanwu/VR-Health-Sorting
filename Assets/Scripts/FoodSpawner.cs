@@ -51,6 +51,7 @@ public class FoodSpawner : MonoBehaviour
             healthyPrefabs[Random.Range(0, healthyPrefabs.Count)] :
             unhealthyPrefabs[Random.Range(0, unhealthyPrefabs.Count)];
 
-        Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        GameObject foodObject = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        foodObject.AddComponent<Food>();
     }
 }

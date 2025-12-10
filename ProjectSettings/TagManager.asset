@@ -6,6 +6,8 @@ TagManager:
   tags:
   - UnhealthyFood
   - HealthyFood
+  - HealthyBowl
+  - UnhealthyBowl
   layers:
   - Default
   - TransparentFX
