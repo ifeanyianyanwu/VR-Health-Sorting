@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7749953194872286291}
   m_Layer: 0
   m_Name: Shrimp
-  m_TagString: Untagged
+  m_TagString: HealthyFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

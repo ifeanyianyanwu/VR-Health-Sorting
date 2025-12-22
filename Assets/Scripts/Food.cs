@@ -5,25 +5,49 @@ using UnityEngine.XR.Interaction.Toolkit; // 1. Add this namespace
 
 public class Food : MonoBehaviour
 {
+
     // Variable to store the reference to the grab script
     private XRGrabInteractable grabInteractable;
+    private UIManager uiManager;
 
     void Start()
     {
+        uiManager = FindObjectOfType<UIManager>();
         // 2. Find the XRGrabInteractable component on this object
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         // Check if the object we collided with has the specific tag
         if (other.CompareTag("HealthyBowl"))
         {
+
+            if (gameObject.CompareTag("HealthyFood"))
+            {
+                Debug.Log("Healthy food in healthy bowl!");
+                uiManager.SetCorrectFoodCount();
+            }else
+            {
+                Debug.Log("Unhealthy food in healthy bowl!");
+                uiManager.SetIncorrectFoodCount();
+            }
+
             Debug.Log("this food is in a healthy bowl.");
             DisableGrab(); // 3. Call the function to disable grabbing
         }
         else if (other.CompareTag("UnhealthyBowl"))
         {
+            if (gameObject.CompareTag("UnhealthyFood"))
+            {
+                Debug.Log("Unhealthy food in unhealthy bowl!");
+                uiManager.SetCorrectFoodCount();
+            }else
+            {
+                Debug.Log("Healthy food in unhealthy bowl!");
+                uiManager.SetIncorrectFoodCount();
+            }
             Debug.Log("this food is in an unhealthy bowl.");
             DisableGrab();
         }

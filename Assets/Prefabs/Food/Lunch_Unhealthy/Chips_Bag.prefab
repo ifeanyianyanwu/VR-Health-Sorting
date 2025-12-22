@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5512788027943710398}
   m_Layer: 0
   m_Name: Chips_Bag
-  m_TagString: Untagged
+  m_TagString: UnhealthyFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
