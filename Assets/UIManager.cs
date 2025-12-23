@@ -11,18 +11,26 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text correctFoodCountText;
     [SerializeField] TMP_Text incorrectFoodCountText;
     [SerializeField] TMP_Text accuracyScoreText;
+    [SerializeField] TMP_Text feedbackText;
     int correctFoodCount = 0;
     int incorrectFoodCount = 0;
+    string feedbackMessage = "Feedback for Mistakes:\n";
+
+
     
     void Start()
     {
         ResetCounts();
     }
-    public void SetIncorrectFoodCount()
+    public void SetIncorrectFoodCount(string foodName, bool isHealthy)
     {
         incorrectFoodCount++;
         incorrectFoodCountText.text = "Incorrect Sorts: " + incorrectFoodCount.ToString();
         UpdateAccuracyUI();
+        feedbackMessage += "- You put " + foodName + " in the Wrong basket, " + foodName + " is " + (isHealthy ? "healthy" : "unhealthy") + "\n";
+        feedbackText.text = feedbackMessage;
+        // You put Orange in the Wrong basket, Orange is healthy
+        // You put Candy in the Wrong basket, Candy is unhealthy
     }
     public void SetCorrectFoodCount()
     {
@@ -56,9 +64,10 @@ private void UpdateAccuracyUI()
     {
         correctFoodCount = 0;
         incorrectFoodCount = 0;
-               correctFoodCountText.text = "Correct Sorts: " + correctFoodCount.ToString();
+        correctFoodCountText.text = "Correct Sorts: " + correctFoodCount.ToString();
         incorrectFoodCountText.text = "Incorrect Sorts: " + incorrectFoodCount.ToString();
-        
+        feedbackMessage = "Feedback for Mistakes:\n";
+        feedbackText.text = feedbackMessage;
         if (accuracyScoreText != null)
         {
             accuracyScoreText.text = "Accuracy Score: 0%";

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3632202465220139509}
   - component: {fileID: 5384184862683181114}
   - component: {fileID: 8253332092190587354}
+  - component: {fileID: -38666144250062371}
   m_Layer: 0
   m_Name: Banana
   m_TagString: HealthyFood
@@ -287,3 +288,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-38666144250062371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012997751318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Banana

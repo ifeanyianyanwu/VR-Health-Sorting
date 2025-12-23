@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3740204686415558174}
   - component: {fileID: -3458002230812310681}
   - component: {fileID: 6815606692657676433}
+  - component: {fileID: -980414594525166597}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: HealthyFood
@@ -287,3 +288,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-980414594525166597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011216760202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Watermelon

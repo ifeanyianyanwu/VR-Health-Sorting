@@ -9,6 +9,7 @@ public class Food : MonoBehaviour
     // Variable to store the reference to the grab script
     private XRGrabInteractable grabInteractable;
     private UIManager uiManager;
+    public string foodName;
 
     void Start()
     {
@@ -19,7 +20,6 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         // Check if the object we collided with has the specific tag
         if (other.CompareTag("HealthyBowl"))
         {
@@ -31,7 +31,7 @@ public class Food : MonoBehaviour
             }else
             {
                 Debug.Log("Unhealthy food in healthy bowl!");
-                uiManager.SetIncorrectFoodCount();
+                uiManager.SetIncorrectFoodCount(foodName, isHealthy: false);
             }
 
             Debug.Log("this food is in a healthy bowl.");
@@ -46,7 +46,7 @@ public class Food : MonoBehaviour
             }else
             {
                 Debug.Log("Healthy food in unhealthy bowl!");
-                uiManager.SetIncorrectFoodCount();
+                uiManager.SetIncorrectFoodCount(foodName, isHealthy: true);
             }
             Debug.Log("this food is in an unhealthy bowl.");
             DisableGrab();

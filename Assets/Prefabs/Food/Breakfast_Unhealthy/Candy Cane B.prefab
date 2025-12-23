@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3117630051257676941}
   - component: {fileID: -8943370956952925079}
   - component: {fileID: 8013957353647663954}
+  - component: {fileID: 7568195268048730877}
   m_Layer: 0
   m_Name: Candy Cane B
   m_TagString: UnhealthyFood
@@ -287,3 +288,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4402094393817975154, guid: c4e8ab22afb1f134f932480d572fe913, type: 3}
+--- !u!114 &7568195268048730877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169909119221500420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Candy Cane

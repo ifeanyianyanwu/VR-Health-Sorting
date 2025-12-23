@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7679665572296280776}
   - component: {fileID: -5381268814780603468}
   - component: {fileID: 8153395601533380479}
+  - component: {fileID: -1394398782802382905}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: HealthyFood
@@ -287,3 +288,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-1394398782802382905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013284424148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Tomato

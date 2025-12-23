@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1144266710289995335}
   - component: {fileID: 2434587964211086338}
   - component: {fileID: -1975653245087975432}
+  - component: {fileID: -801570022187983536}
   m_Layer: 0
   m_Name: Doughnut H
   m_TagString: UnhealthyFood
@@ -287,3 +288,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 452742304724789276, guid: 5f9c4456209377443bf91f23716ae8dc, type: 3}
+--- !u!114 &-801570022187983536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266633486332818743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Doughnut

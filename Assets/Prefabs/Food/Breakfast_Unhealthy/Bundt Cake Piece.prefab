@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7456921500122660032}
   - component: {fileID: -1062192964825670006}
   - component: {fileID: 1468116482207434981}
+  - component: {fileID: 315038845194840309}
   m_Layer: 0
   m_Name: Bundt Cake Piece
   m_TagString: UnhealthyFood
@@ -287,3 +288,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2820822047222203195, guid: 170013b156b2fec4aa4c3361eb197783, type: 3}
+--- !u!114 &315038845194840309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200345373186573719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Bundt Cake
