@@ -16,11 +16,13 @@ public class UIManager : MonoBehaviour
     int incorrectFoodCount = 0;
     string feedbackMessage = "Feedback for Mistakes:\n";
 
+    [SerializeField] Button resetButton;
+
 
     
     void Start()
     {
-        ResetCounts();
+        resetButton.onClick.AddListener(() => GameManager.Instance.ResetGame());
     }
     public void SetIncorrectFoodCount(string foodName, bool isHealthy)
     {
@@ -60,7 +62,7 @@ private void UpdateAccuracyUI()
             accuracyScoreText.text = "Accuracy Score: " + accuracy.ToString("F0") + "%";
         }
     }
-    public void ResetCounts()
+    public void ResetUI()
     {
         correctFoodCount = 0;
         incorrectFoodCount = 0;

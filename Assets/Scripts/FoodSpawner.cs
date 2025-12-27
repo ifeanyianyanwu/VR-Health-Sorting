@@ -8,6 +8,7 @@ public class FoodSpawner : MonoBehaviour
 
     [Header("Unhealthy Prefabs")]
     public List<GameObject> unhealthyPrefabs = new List<GameObject>();
+    public List<GameObject> foods = new List<GameObject>();
 
     [Header("Spawn Points")]
     public List<Transform> spawnPoints = new List<Transform>();
@@ -20,7 +21,7 @@ public class FoodSpawner : MonoBehaviour
         SpawnAllFood();
     }
 
-    void SpawnAllFood()
+    public void SpawnAllFood()
     {
         // Make a temporary list so original order stays untouched
         List<Transform> availablePoints = new List<Transform>(spawnPoints);
@@ -52,6 +53,15 @@ public class FoodSpawner : MonoBehaviour
             unhealthyPrefabs[Random.Range(0, unhealthyPrefabs.Count)];
 
         GameObject foodObject = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        foods.Add(foodObject);
     
+    }
+    public void DeleteAllFood()
+    {
+        foreach (GameObject food in foods)
+        {
+            Destroy(food);
+        }
+        foods.Clear();
     }
 }
