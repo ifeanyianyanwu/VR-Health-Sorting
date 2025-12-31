@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public UIManager uiManager;
     public FoodSpawner foodSpawner;
+    public bool isGameActive = false;
 
     private void Awake()
     {
@@ -29,15 +30,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ResetGame();
-    }
+    
 
-    public void ResetGame()
+    public bool ResetGame(FoodSpawner foodSpawner=null, UIManager uiManager=null)
     {
-       
+        this.uiManager=uiManager;
+        this.foodSpawner=foodSpawner;
+
+        if (!isGameActive)
+        {
+            isGameActive = true;
+        } 
+        else {
+            return false;
+        }
+
         if (foodSpawner != null)
         {
             foodSpawner.DeleteAllFood();
@@ -49,6 +56,8 @@ public class GameManager : MonoBehaviour
         {
             uiManager.ResetUI();
         }
+
+        return true;
     }
 
     // Example of a function you can call from any other script:

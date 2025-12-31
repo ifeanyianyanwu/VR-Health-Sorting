@@ -20,24 +20,33 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] Button resetButton;
     [SerializeField] Button startButton;
+    [SerializeField] Button quitButton;
 
     [SerializeField] GameObject resultView;
+
 
 
     
     void Start()
     {
+        quitButton.onClick.AddListener(() =>
+        {
+            resultView.SetActive(false);
+            startButton.gameObject.SetActive(true);
+
+        });
+
         startButton.onClick.AddListener(() => 
         {
-            if (foodSpawner != null)
-            {
-                foodSpawner.SpawnAllFood();
-                startButton.gameObject.SetActive(false);
-                GameManager.Instance.ResetGame();
 
-            }
+        if (GameManager.Instance.ResetGame(foodSpawner, this))
+        {    
+            startButton.gameObject.SetActive(false);
+        }
+
+            
         });
-        resetButton.onClick.AddListener(() => GameManager.Instance.ResetGame());
+        resetButton.onClick.AddListener(() => GameManager.Instance.ResetGame(foodSpawner, this));
     }
     public void SetIncorrectFoodCount(string foodName, bool isHealthy)
     {

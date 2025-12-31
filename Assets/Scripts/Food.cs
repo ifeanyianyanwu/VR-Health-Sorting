@@ -59,6 +59,7 @@ public class Food : MonoBehaviour
         if(DroppedFoodCount >= FoodSpawner.totalItemsToSpawn)
         {
             uiManager.EnableResultView();
+            GameManager.Instance.isGameActive = false;
         }
     }
 
