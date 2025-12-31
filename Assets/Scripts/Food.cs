@@ -8,12 +8,14 @@ public class Food : MonoBehaviour
 
     // Variable to store the reference to the grab script
     private XRGrabInteractable grabInteractable;
-    private UIManager uiManager;
+    public UIManager uiManager;
     public string foodName;
+
+    public static int DroppedFoodCount = 0;
+
 
     void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
         // 2. Find the XRGrabInteractable component on this object
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
@@ -23,7 +25,7 @@ public class Food : MonoBehaviour
         // Check if the object we collided with has the specific tag
         if (other.CompareTag("HealthyBowl"))
         {
-
+            DroppedFoodCount++;
             if (gameObject.CompareTag("HealthyFood"))
             {
                 Debug.Log("Healthy food in healthy bowl!");
@@ -39,6 +41,8 @@ public class Food : MonoBehaviour
         }
         else if (other.CompareTag("UnhealthyBowl"))
         {
+            DroppedFoodCount++;
+
             if (gameObject.CompareTag("UnhealthyFood"))
             {
                 Debug.Log("Unhealthy food in unhealthy bowl!");
@@ -50,6 +54,11 @@ public class Food : MonoBehaviour
             }
             Debug.Log("this food is in an unhealthy bowl.");
             DisableGrab();
+        }
+
+        if(DroppedFoodCount >= FoodSpawner.totalItemsToSpawn)
+        {
+            uiManager.EnableResultView();
         }
     }
 

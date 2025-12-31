@@ -14,15 +14,20 @@ public class FoodSpawner : MonoBehaviour
     public List<Transform> spawnPoints = new List<Transform>();
 
     [Header("Spawn Settings")]
-    public int totalItemsToSpawn = 20; // spawn all at once
+    public static int totalItemsToSpawn = 2; // spawn all at once
+
+    [SerializeField] private UIManager uiManager;
 
     void Start()
     {
-        SpawnAllFood();
+        DeleteAllFood();
     }
 
     public void SpawnAllFood()
     {
+        GameManager.Instance.uiManager=uiManager;
+        GameManager.Instance.foodSpawner=this;
+        Food.DroppedFoodCount = 0;
         // Make a temporary list so original order stays untouched
         List<Transform> availablePoints = new List<Transform>(spawnPoints);
 
@@ -54,7 +59,11 @@ public class FoodSpawner : MonoBehaviour
 
         GameObject foodObject = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
         foods.Add(foodObject);
-    
+        Food foodScript = foodObject.GetComponent<Food>();
+        if (foodScript != null)
+        {
+            foodScript.uiManager = uiManager;
+        }
     }
     public void DeleteAllFood()
     {

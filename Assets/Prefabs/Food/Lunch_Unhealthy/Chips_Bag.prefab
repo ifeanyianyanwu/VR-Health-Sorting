@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7852475229782340049}
   - component: {fileID: 3695360059300219090}
   - component: {fileID: 5512788027943710398}
+  - component: {fileID: 4279558306025630707}
   m_Layer: 0
   m_Name: Chips_Bag
   m_TagString: UnhealthyFood
@@ -287,3 +288,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e3ff11dbbe2447f4390e781a3033d688, type: 3}
+--- !u!114 &4279558306025630707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011314148014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Chips

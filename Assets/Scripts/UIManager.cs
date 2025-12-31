@@ -12,16 +12,31 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text incorrectFoodCountText;
     [SerializeField] TMP_Text accuracyScoreText;
     [SerializeField] TMP_Text feedbackText;
-    int correctFoodCount = 0;
-    int incorrectFoodCount = 0;
+    [SerializeField] int correctFoodCount = 0;
+    [SerializeField] int incorrectFoodCount = 0;
     string feedbackMessage = "Feedback for Mistakes:\n";
 
+    [SerializeField] FoodSpawner foodSpawner;
+
     [SerializeField] Button resetButton;
+    [SerializeField] Button startButton;
+
+    [SerializeField] GameObject resultView;
 
 
     
     void Start()
     {
+        startButton.onClick.AddListener(() => 
+        {
+            if (foodSpawner != null)
+            {
+                foodSpawner.SpawnAllFood();
+                startButton.gameObject.SetActive(false);
+                GameManager.Instance.ResetGame();
+
+            }
+        });
         resetButton.onClick.AddListener(() => GameManager.Instance.ResetGame());
     }
     public void SetIncorrectFoodCount(string foodName, bool isHealthy)
@@ -74,6 +89,13 @@ private void UpdateAccuracyUI()
         {
             accuracyScoreText.text = "Accuracy Score: 0%";
         }
+        resultView.SetActive(false);
+
+    }
+
+    public void EnableResultView()
+    {
+        resultView.SetActive(true);
     }
 
     public int GetCorrectFoodCount() => correctFoodCount;

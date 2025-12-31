@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4913493892287834221}
   - component: {fileID: -2111574286189527631}
   - component: {fileID: 5992425397865711165}
+  - component: {fileID: 6708681428078615804}
   m_Layer: 0
   m_Name: Rice_Bowl
   m_TagString: HealthyFood
@@ -287,3 +288,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 442120c1ba2d6ac4a9caa291dd678060, type: 3}
+--- !u!114 &6708681428078615804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013397514734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e1d38191b1e44c7884f649a26a316a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: Rice Bowl
