@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -67,8 +66,7 @@ public class UIManager : MonoBehaviour
         UpdateAccuracyUI();
         feedbackMessage += "- You put " + foodName + " in the Wrong basket, " + foodName + " is " + (isHealthy ? "healthy" : "unhealthy") + "\n";
         feedbackText.text = feedbackMessage;
-        // You put Orange in the Wrong basket, Orange is healthy
-        // You put Candy in the Wrong basket, Candy is unhealthy
+      
     }
     public void SetCorrectFoodCount()
     {
@@ -85,14 +83,11 @@ private void UpdateAccuracyUI()
         int totalSorted = correctFoodCount + incorrectFoodCount;
         float accuracy = 0f;
 
-        // Prevent "Division by Zero" errors if nothing has been sorted yet
         if (totalSorted > 0)
         {
-            // (float) cast is required to get decimal results
             accuracy = ((float)correctFoodCount / totalSorted) * 100f;
         }
 
-        // Update the text. "F0" formats it to 0 decimal places (e.g., "80%")
         if (accuracyScoreText != null)
         {
             accuracyScoreText.text = "Accuracy Score: " + accuracy.ToString("F0") + "%";
@@ -119,6 +114,5 @@ private void UpdateAccuracyUI()
         resultView.SetActive(true);
     }
 
-    public int GetCorrectFoodCount() => correctFoodCount;
-    public int GetIncorrectFoodCount() => incorrectFoodCount;
+   
 }

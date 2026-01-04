@@ -14,7 +14,7 @@ public class FoodSpawner : MonoBehaviour
     public List<Transform> spawnPoints = new List<Transform>();
 
     [Header("Spawn Settings")]
-    public static int totalItemsToSpawn = 10; // spawn all at once
+    public static int totalItemsToSpawn = 10; 
 
     [SerializeField] private UIManager uiManager;
 
@@ -28,17 +28,14 @@ public class FoodSpawner : MonoBehaviour
         GameManager.Instance.uiManager=uiManager;
         GameManager.Instance.foodSpawner=this;
         Food.DroppedFoodCount = 0;
-        // Make a temporary list so original order stays untouched
         List<Transform> availablePoints = new List<Transform>(spawnPoints);
 
-        // Shuffle spawn points Fisher-Yates style
         for (int i = 0; i < availablePoints.Count; i++)
         {
             int rand = Random.Range(i, availablePoints.Count);
             (availablePoints[i], availablePoints[rand]) = (availablePoints[rand], availablePoints[i]);
         }
 
-        // Only spawn up to the number of unique points
         int spawnCount = Mathf.Min(totalItemsToSpawn, availablePoints.Count);
 
         for (int i = 0; i < spawnCount; i++)
@@ -49,10 +46,8 @@ public class FoodSpawner : MonoBehaviour
 
     void SpawnRandomFoodAtPoint(Transform spawnPoint)
     {
-        // Pick category (50/50)
         bool spawnHealthy = Random.value > 0.5f;
 
-        // Pick prefab from chosen category
         GameObject prefab = spawnHealthy ?
             healthyPrefabs[Random.Range(0, healthyPrefabs.Count)] :
             unhealthyPrefabs[Random.Range(0, unhealthyPrefabs.Count)];

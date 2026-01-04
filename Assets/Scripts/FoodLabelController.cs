@@ -13,14 +13,11 @@ public class FoodLabelController : MonoBehaviour
 
     private Camera mainCamera;
 
-    // CHANGE 1: Use Awake for initialization so references are ready for OnEnable
     void Awake()
     {
-        // Try to get components if they weren't assigned in Inspector
         if (grabInteractable == null) grabInteractable = GetComponent<XRGrabInteractable>();
         if (foodItem == null) foodItem = GetComponent<Food>();
         
-        // Find canvas and text if not assigned
         if (labelCanvas == null) labelCanvas = GetComponentInChildren<Canvas>(true)?.gameObject;
         if (foodNameText == null && labelCanvas != null) 
             foodNameText = labelCanvas.GetComponentInChildren<TextMeshProUGUI>(true);
@@ -30,10 +27,8 @@ public class FoodLabelController : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        // Ensure label is hidden at start
         if(labelCanvas != null) labelCanvas.SetActive(false); 
         
-        // Set the food name text
         if(foodNameText != null && foodItem != null)
         {
             foodNameText.text = foodItem.foodName;
@@ -42,31 +37,29 @@ public class FoodLabelController : MonoBehaviour
 
     void OnEnable()
     {
-        // Subscribe to XR Interaction events
         if(grabInteractable != null)
         {
-            // Note: In newer XR Toolkit versions, 'args' is required. 
-            // In older versions (pre-2.0), it might be parameterless.
+       
             grabInteractable.hoverEntered.AddListener(OnHoverEnter);
             grabInteractable.hoverExited.AddListener(OnHoverExit);
-             // Added based on previous request
+            grabInteractable.selectEntered.AddListener(OnSelectEnter);
+            
         }
     }
 
     void OnDisable()
     {
-        // Unsubscribe from XR Interaction events
         if(grabInteractable != null)
         {
             grabInteractable.hoverEntered.RemoveListener(OnHoverEnter);
             grabInteractable.hoverExited.RemoveListener(OnHoverExit);
-   
+            grabInteractable.selectEntered.RemoveListener(OnSelectEnter);
+            
         }
     }
 
     void Update()
     {
-        // Billboarding
         if (labelCanvas != null && labelCanvas.activeSelf && mainCamera != null)
         {
             labelCanvas.transform.LookAt(labelCanvas.transform.position + mainCamera.transform.rotation * Vector3.forward,
@@ -74,11 +67,7 @@ public class FoodLabelController : MonoBehaviour
         }
     }
 
-    // --- Event Methods ---
-    // Note: To match the Listener signature, these usually take (HoverEnterEventArgs args)
-    // But since you used a lambda (args) => ... in your original code, your parameterless void works fine.
-    // I updated the AddListener above to point directly to these functions for cleaner code.
-    // If you get a signature error, change these to: public void OnHoverEnter(HoverEnterEventArgs args)
+
 
     public void OnHoverEnter(HoverEnterEventArgs args)
     {
@@ -90,5 +79,10 @@ public class FoodLabelController : MonoBehaviour
         if(labelCanvas != null) labelCanvas.SetActive(false);
     }
     
-  
+    public void OnSelectEnter(SelectEnterEventArgs args)
+    {
+        if(labelCanvas != null) labelCanvas.SetActive(false);
+    }
+
+   
 }
