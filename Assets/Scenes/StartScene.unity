@@ -154,10 +154,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1235212602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 115, y: -150}
-  m_SizeDelta: {x: 230, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10614012
 MonoBehaviour:
@@ -198,7 +198,8 @@ MonoBehaviour:
     foods in the designated Healthy bowl and Unhealthy foods in the Unhealthy bowl.
     After sorting, the game will display your accuracy score and specific feedback
     on any mistakes made. Use the pointer to select the Restart or Quit button to
-    finish the session.'
+    finish the session, or press the Escape key on your keyboard to instantly quit
+    the session mid-game.'
 --- !u!222 &10614013
 CanvasRenderer:
   m_ObjectHideFlags: 0
