@@ -14,7 +14,7 @@ public class FoodSpawner : MonoBehaviour
     public List<Transform> spawnPoints = new List<Transform>();
 
     [Header("Spawn Settings")]
-    public static int totalItemsToSpawn = 2; // spawn all at once
+    public static int totalItemsToSpawn = 10; // spawn all at once
 
     [SerializeField] private UIManager uiManager;
 
