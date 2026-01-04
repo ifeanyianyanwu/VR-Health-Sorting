@@ -49,8 +49,7 @@ public class FoodLabelController : MonoBehaviour
             // In older versions (pre-2.0), it might be parameterless.
             grabInteractable.hoverEntered.AddListener(OnHoverEnter);
             grabInteractable.hoverExited.AddListener(OnHoverExit);
-            grabInteractable.selectEntered.AddListener(OnSelectEnter);
-            grabInteractable.selectExited.AddListener(OnSelectExit); // Added based on previous request
+             // Added based on previous request
         }
     }
 
@@ -61,8 +60,7 @@ public class FoodLabelController : MonoBehaviour
         {
             grabInteractable.hoverEntered.RemoveListener(OnHoverEnter);
             grabInteractable.hoverExited.RemoveListener(OnHoverExit);
-            grabInteractable.selectEntered.RemoveListener(OnSelectEnter);
-            grabInteractable.selectExited.RemoveListener(OnSelectExit);
+   
         }
     }
 
@@ -92,14 +90,5 @@ public class FoodLabelController : MonoBehaviour
         if(labelCanvas != null) labelCanvas.SetActive(false);
     }
     
-    public void OnSelectEnter(SelectEnterEventArgs args)
-    {
-        if(labelCanvas != null) labelCanvas.SetActive(false);
-    }
-
-    public void OnSelectExit(SelectExitEventArgs args)
-    {
-        // Show label again if we drop it but are still looking at it
-        if(labelCanvas != null) labelCanvas.SetActive(true);
-    }
+  
 }
